@@ -1,0 +1,13 @@
+# Compilados
+build/
+bin/
+target/
+*.class
+
+# Eclipse / STS
+.metadata/
+.recommenders/
+*.log
+
+# Sistema
+.DS_Store
