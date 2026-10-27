@@ -39,5 +39,22 @@
             </tr>
         </c:forEach>
     </table>
+
+    <h3>Pagos con tarjeta de crédito</h3>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>FECHA</th><th>MES</th><th>TARJETA</th><th>TRANSACCIÓN</th><th>GASTOS</th><th>PAGOS</th>
+        </tr>
+        <c:forEach items="${pagos}" var="p">
+            <tr>
+                <td><fmt:formatDate value="${p.fecha}" pattern="dd/MM/yyyy" /></td>
+                <td>${p.mes}</td>
+                <td>${p.tarjeta}</td>
+                <td>${p.transaccion}</td>
+                <td>${p.gastos}</td>
+                <td style="color:red">${p.pagos}</td>
+            </tr>
+        </c:forEach>
+    </table>
 </body>
 </html>

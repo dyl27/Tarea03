@@ -2,6 +2,8 @@ package dominio;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import org.springframework.util.AutoPopulatingList;
+import java.util.List;
 
 public class Credito {
 
@@ -14,6 +16,7 @@ public class Credito {
 	private BigDecimal cuota;
 	private BigDecimal tea;
 	private Date fechaVencimiento;
+	private List<PagoTarjeta> pagos = new AutoPopulatingList<PagoTarjeta>( PagoTarjeta.class );
 
 	public Integer getIdCredito() {
 		return idCredito;
@@ -51,7 +54,7 @@ public class Credito {
 	public void setIdMoneda( Integer idMoneda ) {
 		this.idMoneda = idMoneda;
 	  }
-	public void setFecha( Date fecha ) {
+	public void setFecha( Date fecha ) {    
 		this.fecha = fecha;
 	  }
 	public void setMonto( BigDecimal monto ) {
@@ -69,4 +72,13 @@ public class Credito {
 	public void setFechaVencimiento( Date fechaVencimiento ) {
 		this.fechaVencimiento = fechaVencimiento;
 	  }
+	
+	public List<PagoTarjeta> getPagos() {
+		return pagos;
+	}
+	public void setPagos( List<PagoTarjeta> pagos ) {
+		this.pagos = pagos;
+	}	
+	
+	
 }

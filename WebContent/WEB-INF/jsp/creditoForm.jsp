@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
@@ -63,6 +64,27 @@
             <label>Fecha vencimiento:</label>
             <input type="date" name="fechaVencimiento" id="fechaVencimiento" value="${credito.fechaVencimiento}" />
         </p>
+
+        <h3>Gastos con tarjeta de crédito</h3>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>FECHA</th><th>MES</th><th>TARJETA</th><th>TRANSACCIÓN</th><th>GASTOS</th><th>PAGOS</th>
+            </tr>
+            <c:forEach items="${credito.pagos}" var="p" varStatus="s">
+                <tr>
+                    <td><fmt:formatDate value="${p.fecha}" pattern="dd/MM/yyyy" /></td>
+                    <td>${p.mes}</td>
+                    <td>${p.tarjeta}</td>
+                    <td>${p.transaccion}</td>
+                    <td>${p.gastos}</td>
+                    <td>
+                        <input type="hidden" name="pagos[${s.index}].idPago" value="${p.idPago}" />
+                        <input name="pagos[${s.index}].pagos" value="${p.pagos}" />
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <br/>
 
         <input type="submit" value="Aceptar" />
     </form:form>

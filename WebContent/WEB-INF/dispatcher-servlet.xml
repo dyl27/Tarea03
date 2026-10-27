@@ -20,6 +20,8 @@
  
     <bean id="monedaService" class="servicio.MonedaServiceImpl" />
  
-    <bean id="creditoService" class="servicio.CreditoServiceImpl" />    
+    <bean id="creditoService" class="servicio.CreditoServiceImpl" /> 
+    
+    <bean id="pagoTarjetaService" class="servicio.PagoTarjetaServiceImpl" />    
          
 </beans>
